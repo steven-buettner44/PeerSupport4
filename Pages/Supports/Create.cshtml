@@ -1,0 +1,60 @@
+﻿@page
+@model PeerSupport4.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Input Data</h1>
+
+<h4>Support</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+         
+            <div class="form-group">
+                <select name="Support.City">
+                    <option value="">Select a City</option>
+                    <option value="Grand Forks">Grand Forks</option>
+                    <option value="Fargo">Fargo</option>
+                    <option value="Valley City">Valley City</option>
+                    <option value="Bismarck">Bismarck</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Support.Name" class="control-label"></label>
+                <input asp-for="Support.Name" class="form-control" />
+                <span asp-validation-for="Support.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Support.Day" class="control-label"></label>
+                <input asp-for="Support.Day" class="form-control" />
+                <span asp-validation-for="Support.Day" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Support.Hours" class="control-label"></label>
+                <input asp-for="Support.Hours" class="form-control" />
+                <span asp-validation-for="Support.Hours" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Support.Notes" class="control-label"></label>
+                <textarea cols="50" rows="10" asp-for="Support.Notes" Support.Notes" class="form-control"></textarea>
+                <span asp-validation-for="Support.Notes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
